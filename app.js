@@ -22,7 +22,7 @@ io.on("connection",function(socket){
     })
 })
 
-app.get("/", function (req,res){
+app.get("/map", function (req,res){
     res.render("index");
 })
 
