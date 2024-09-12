@@ -10,7 +10,12 @@ const io = socketio(server);
 
 
 app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname,"../view")));
+
+// Set the views directory to /view (if index.ejs is here)
+app.set("views", path.join(__dirname, '../view'));
+
+// Serve static files from /public (e.g., CSS, JS, images)
+app.use(express.static(path.join(__dirname, 'public')));
 
 io.on("connection",function(socket){
     socket.on("send-location",function(data){
