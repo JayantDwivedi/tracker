@@ -10,7 +10,7 @@ const io = socketio(server);
 
 
 app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname,"public")));
+app.use(express.static(path.join(__dirname,"../view")));
 
 io.on("connection",function(socket){
     socket.on("send-location",function(data){
@@ -22,7 +22,7 @@ io.on("connection",function(socket){
     })
 })
 
-app.get("/map", function (req,res){
+app.get("/", function (req,res){
     res.render("index");
 })
 
